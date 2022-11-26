@@ -180,6 +180,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fs_config_files
 
+TARGET_FS_CONFIG_GEN += $(LOCAL_PATH)/configs/mot_aids.fs
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1.vendor \
