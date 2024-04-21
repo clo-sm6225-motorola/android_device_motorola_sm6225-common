@@ -50,7 +50,6 @@ PRODUCT_PACKAGES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    audio_amplifier.bengal \
     audio.bluetooth.default \
     audio.primary.bengal \
     audio.r_submix.default \
@@ -90,6 +89,8 @@ PRODUCT_PACKAGES += \
     libvisualizer \
     libvolumelistener
 
+AUDIO_HAL_DIR := vendor/qcom/opensource/audio-hal/primary-hal
+
 # Audio - Configs
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
@@ -115,9 +116,9 @@ PRODUCT_PACKAGES += \
 
 # Bootctrl
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.1-impl-qti \
-    android.hardware.boot@1.1-impl-qti.recovery \
-    android.hardware.boot@1.1-service
+    android.hardware.boot@1.2-impl-qti \
+    android.hardware.boot@1.2-impl-qti.recovery \
+    android.hardware.boot@1.2-service
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -134,7 +135,7 @@ PRODUCT_PACKAGES += \
 
 # ConfigStore
 PRODUCT_PACKAGES += \
-    disable_configstore
+    vendor.qti.hardware.capabilityconfigstore@1.0.vendor
 
 # Display
 PRODUCT_PACKAGES += \
@@ -218,11 +219,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.health-service.qti
 
-# HIDL
-PRODUCT_PACKAGES += \
-    libhidltransport.vendor \
-    libhwbinder.vendor
-
 # IPACM
 PRODUCT_PACKAGES += \
     ipacm \
@@ -232,14 +228,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1.vendor
 
-# Lineage Health
-PRODUCT_PACKAGES += \
-    vendor.lineage.health-service.default
-
 # Media
 PRODUCT_PACKAGES += \
-    libmm-omxcore \
-    libOmxCore \
     libOmxVdec \
     libOmxVenc \
     libstagefrighthw \
@@ -296,7 +286,7 @@ PRODUCT_PACKAGES += \
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay-aospa
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
@@ -346,13 +336,17 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti \
+    android.hardware.power-service \
     android.hardware.power@1.2.vendor
 
 # Public libraries
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt \
     $(LOCAL_PATH)/configs/public.libraries.system_ext-qti.txt:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/public.libraries-qti.txt
+
+# QCom
+PRODUCT_VENDOR_KERNEL_HEADERS := device/motorola/sm6225-common-kernel/kernel-headers
+TARGET_BOARD_PLATFORM := bengal
 
 # RFS MSM MPSS symlinks
 PRODUCT_PACKAGES += \
@@ -409,28 +403,13 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/samsung \
     vendor/qcom/opensource/usb/etc
 
-# Telephony
-PRODUCT_PACKAGES += \
-    ims-ext-common \
-    ims_ext_common.xml \
-    qti-telephony-hidl-wrapper \
-    qti_telephony_hidl_wrapper.xml \
-    qti-telephony-hidl-wrapper-prd \
-    qti_telephony_hidl_wrapper_prd.xml \
-    qti-telephony-utils \
-    qti_telephony_utils.xml \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
-
 # Thermal
 PRODUCT_PACKAGES += \
     android.hardware.thermal@2.0-service.qti
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.3-service-qti
+    android.hardware.usb@1.2-service-qti
 
 PRODUCT_PACKAGES += \
     init.qcom.usb.rc \

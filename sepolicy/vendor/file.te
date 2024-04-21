@@ -23,5 +23,8 @@ type fsg_file, file_type, contextmount_type, vendor_file_type;
 # Power
 type proc_sched_lib_mask_cpuinfo, proc_type, fs_type;
 
+# SurfaceFlinger
+type sysfs_graphics, sysfs_type, fs_type;
+
 # Touchscreen
 type vendor_sysfs_touchpanel, fs_type, sysfs_type;
