@@ -281,6 +281,10 @@ PRODUCT_PACKAGES += \
     MotoActions \
     MotoCommonOverlay
 
+# Moto NrEnabler
+PRODUCT_PACKAGES += \
+    MotoNrEnabler
+
 # Net
 PRODUCT_PACKAGES += \
     android.system.net.netd@1.1.vendor
