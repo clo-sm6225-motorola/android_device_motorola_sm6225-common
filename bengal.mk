@@ -3,8 +3,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Add common definitions for Qualcomm
+# Directories of dependent local repositories
 $(call inherit-product, hardware/qcom-caf/common/common.mk)
+HARDWARE_PATH := hardware/motorola
 
 # A/B
 AB_OTA_UPDATER := true
@@ -439,6 +440,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
+
+# Hardware Motorola
+$(call inherit-product, $(HARDWARE_PATH)/common.mk)
 
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/motorola/sm6225-common/sm6225-common-vendor.mk)
