@@ -1,11 +1,3 @@
-#
-# SPDX-FileCopyrightText: 2022-2024 The LineageOS Project
-# SPDX-License-Identifier: Apache-2.0
-#
-
-# Directories of dependent local repositories
-$(call inherit-product, hardware/qcom-caf/common/common.mk)
-HARDWARE_PATH := hardware/motorola
 
 # A/B
 AB_OTA_UPDATER := true
@@ -268,15 +260,12 @@ PRODUCT_COPY_FILES += \
 # QCom
 PRODUCT_VENDOR_KERNEL_HEADERS := device/motorola/sm6225-common-kernel/kernel-headers
 TARGET_BOARD_PLATFORM := bengal
+HARDWARE_PATH := hardware/motorola
 
 TARGET_COMMON_QTI_COMPONENTS += \
     audio \
     display \
     perf
-
-# RFS MSM MPSS symlinks
-PRODUCT_PACKAGES += \
-    rfs_msm_mpss_readonly_vendor_fsg_symlink
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -360,11 +349,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     WifiResCommonOverlay
-
-# WiFi firmware symlinks
-PRODUCT_PACKAGES += \
-    firmware_wlan_mac.bin_symlink \
-    firmware_WCNSS_qcom_cfg.ini_symlink
 
 # Wifi - Configs
 PRODUCT_COPY_FILES += \
